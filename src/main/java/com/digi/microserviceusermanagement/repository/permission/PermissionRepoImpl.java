@@ -1,9 +1,11 @@
 package com.digi.microserviceusermanagement.repository.permission;
 
 import com.digi.microserviceusermanagement.model.entity.Permission;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PermissionRepoImpl implements PermissionRepo{
     @Override
     public void save(Permission permission) {
