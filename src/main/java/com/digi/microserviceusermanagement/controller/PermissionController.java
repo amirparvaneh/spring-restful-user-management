@@ -36,8 +36,7 @@ public class PermissionController {
     @GetMapping("/allPermission")
     @ResponseBody
     private List<Permission> getAllPermission(){
-        List<Permission> result = new ArrayList<>();
-        result = permissionService.findAll();
+        List<Permission> result = permissionService.findAll();
         return result;
     }
 
