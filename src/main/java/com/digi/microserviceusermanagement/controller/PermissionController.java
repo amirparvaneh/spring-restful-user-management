@@ -18,8 +18,8 @@ public class PermissionController {
     }
 
 
-    @GetMapping()
-    private Permission getPermission(@RequestParam Long id){
+    @GetMapping
+    public Permission getPermission(@RequestParam Long id){
         Permission permission = new Permission();
         permission = permissionService.findById(id);
         return permission;
@@ -27,21 +27,19 @@ public class PermissionController {
 
 
     @PostMapping
-    @ResponseBody
-    private String createPermission(@RequestBody Permission permission){
+    public String createPermission(@RequestBody Permission permission){
         permissionService.save(permission);
         return permission.getTitle() + "have been saved";
     }
 
     @GetMapping("/allPermission")
-    @ResponseBody
-    private List<Permission> getAllPermission(){
+    public List<Permission> getAllPermission(){
         List<Permission> result = permissionService.findAll();
         return result;
     }
 
     @PutMapping
-    private String updatePermission(@RequestParam Long id){
+    public String updatePermission(@RequestParam Long id){
         Permission permission = permissionService.findById(id);
         if (Objects.nonNull(permission)){
             permissionService.update(permission);
@@ -50,7 +48,7 @@ public class PermissionController {
     }
 
     @DeleteMapping
-    private String deletePermission(@RequestParam Long id){
+    public String deletePermission(@RequestParam Long id){
         permissionService.delete(id);
         return "permission with id : " + id + "have been deleted";
     }
