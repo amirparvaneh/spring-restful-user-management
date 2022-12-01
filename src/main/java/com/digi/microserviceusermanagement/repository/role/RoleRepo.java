@@ -1,7 +1,9 @@
 package com.digi.microserviceusermanagement.repository.role;
 
 import com.digi.microserviceusermanagement.model.entity.Role;
-import com.digi.microserviceusermanagement.repository.BaseRepo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface RoleRepo extends BaseRepo<Role> {
+@Repository
+public interface RoleRepo extends JpaRepository<Role,Long> {
 }

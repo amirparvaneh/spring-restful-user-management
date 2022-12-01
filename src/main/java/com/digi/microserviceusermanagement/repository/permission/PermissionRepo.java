@@ -1,7 +1,9 @@
 package com.digi.microserviceusermanagement.repository.permission;
 
 import com.digi.microserviceusermanagement.model.entity.Permission;
-import com.digi.microserviceusermanagement.repository.BaseRepo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PermissionRepo extends BaseRepo<Permission> {
+@Repository
+public interface PermissionRepo extends JpaRepository<Permission,Long> {
 }

@@ -1,7 +1,9 @@
 package com.digi.microserviceusermanagement.repository.user;
 
 import com.digi.microserviceusermanagement.model.entity.User;
-import com.digi.microserviceusermanagement.repository.BaseRepo;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepo extends BaseRepo<User> {
+@Repository
+public interface UserRepo extends JpaRepository<User,Long> {
 }

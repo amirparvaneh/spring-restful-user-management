@@ -2,13 +2,15 @@ package com.digi.microserviceusermanagement.controller;
 
 import com.digi.microserviceusermanagement.model.entity.Permission;
 import com.digi.microserviceusermanagement.service.permission.PermissionServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-@RestController("/permission")
+@RestController
+@RequestMapping("/Permission")
 public class PermissionController {
 
     private PermissionServiceImpl permissionService;
