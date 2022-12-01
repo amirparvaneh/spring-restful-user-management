@@ -1,17 +1,19 @@
 package com.digi.microserviceusermanagement.service.role;
 
 import com.digi.microserviceusermanagement.model.entity.Role;
-import com.digi.microserviceusermanagement.repository.role.RoleRepoImpl;
+import com.digi.microserviceusermanagement.repository.role.RoleRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 
 @Service
 public class RoleServiceImpl implements RoleService {
 
-    private RoleRepoImpl roleRepo;
+    private RoleRepo roleRepo;
 
-    public RoleServiceImpl(RoleRepoImpl roleRepo) {
+    public RoleServiceImpl(RoleRepo roleRepo){
         this.roleRepo = roleRepo;
     }
 
@@ -22,18 +24,19 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public Role findById(Long id) {
-        Role role = roleRepo.findById(id);
-        return role;
+        Optional<Role> role = roleRepo.findById(id);
+        return role.get();
     }
 
     @Override
     public void update(Role role) {
-        roleRepo.update(role);
+        roleRepo.save(role);
     }
 
     @Override
     public void delete(Long id) {
-        roleRepo.delete(id);
+        Role role = findById(id);
+        roleRepo.delete(role);
     }
 
     @Override

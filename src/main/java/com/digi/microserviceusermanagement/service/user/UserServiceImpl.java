@@ -1,21 +1,21 @@
 package com.digi.microserviceusermanagement.service.user;
 
 import com.digi.microserviceusermanagement.model.entity.User;
-import com.digi.microserviceusermanagement.repository.user.UserRepoImpl;
+import com.digi.microserviceusermanagement.repository.user.UserRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    private UserRepoImpl userRepo;
+    private UserRepo userRepo;
 
-    public UserServiceImpl(UserRepoImpl userRepo) {
+    public UserServiceImpl(UserRepo userRepo){
         this.userRepo = userRepo;
     }
-
     @Override
     public void save(User user) {
         userRepo.save(user);
@@ -23,18 +23,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(Long id) {
-        User user = userRepo.findById(id);
-        return user;
+        Optional<User> user = userRepo.findById(id);
+        return user.get();
     }
 
     @Override
     public void update(User user) {
-        userRepo.update(user);
+        userRepo.save(user);
     }
 
     @Override
     public void delete(Long id) {
-        userRepo.delete(id);
+        User user = findById(id);
+        userRepo.delete(user);
     }
 
     @Override
