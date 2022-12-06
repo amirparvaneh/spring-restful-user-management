@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/role")
+@RequestMapping("/roles")
 public class RoleController {
 
     private RoleServiceImpl roleService;
@@ -31,7 +31,7 @@ public class RoleController {
                 .body(role);
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public List<Role> getAllRole() {
         return roleService.findAll();
     }

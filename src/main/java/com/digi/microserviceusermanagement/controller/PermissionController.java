@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/Permission")
+@RequestMapping("/Permissions")
 public class PermissionController {
 
     private PermissionServiceImpl permissionService;
@@ -34,7 +34,7 @@ public class PermissionController {
         return permission.getTitle() + "have been saved";
     }
 
-    @GetMapping("/allPermission")
+    @GetMapping
     public List<Permission> getAllPermission(){
         List<Permission> result = permissionService.findAll();
         return result;
