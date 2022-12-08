@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/roles")
+@RequestMapping(value = "/roles")
 public class RoleController {
 
     private RoleServiceImpl roleService;
@@ -19,8 +19,8 @@ public class RoleController {
         this.roleService = roleService;
     }
 
-    @GetMapping
-    public Role getRoleById(@RequestParam Long roleId) {
+    @GetMapping("/{id}")
+    public Role getRoleById(@PathVariable Long roleId) {
         return roleService.findById(roleId);
     }
 

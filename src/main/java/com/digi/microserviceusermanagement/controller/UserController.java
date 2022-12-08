@@ -3,7 +3,6 @@ package com.digi.microserviceusermanagement.controller;
 
 import com.digi.microserviceusermanagement.model.entity.User;
 import com.digi.microserviceusermanagement.service.user.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping(value = "/users")
 public class UserController {
 
     private UserServiceImpl userService;
@@ -20,8 +19,8 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public User getUserById(@RequestParam Long userId) {
+    @GetMapping("{id}")
+    public User getUserById(@PathVariable Long userId) {
         return userService.findById(userId);
     }
 
