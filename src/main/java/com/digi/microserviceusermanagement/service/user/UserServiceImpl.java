@@ -3,6 +3,8 @@ package com.digi.microserviceusermanagement.service.user;
 import com.digi.microserviceusermanagement.model.entity.User;
 import com.digi.microserviceusermanagement.repository.user.UserRepo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +18,9 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepo userRepo){
         this.userRepo = userRepo;
     }
+
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public void save(User user) {
         userRepo.save(user);
     }

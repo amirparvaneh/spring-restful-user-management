@@ -1,5 +1,6 @@
 package com.digi.microserviceusermanagement.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -9,11 +10,13 @@ import java.util.List;
 @Table(name = "user")
 public class User extends BaseEntity {
 
-
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("nationalId")
     private Long nationalID;
 
+    @JsonProperty("role")
     private Role role;
 
     public User() {

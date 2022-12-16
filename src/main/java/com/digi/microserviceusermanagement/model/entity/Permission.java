@@ -1,6 +1,7 @@
 package com.digi.microserviceusermanagement.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 
@@ -9,6 +10,7 @@ import jakarta.persistence.*;
 public class Permission extends BaseEntity {
 
     @Column(name = "permission_title")
+    @JsonProperty("title")
     private String title;
 
 
